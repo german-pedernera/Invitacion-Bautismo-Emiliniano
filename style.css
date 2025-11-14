@@ -1,0 +1,419 @@
+/* ----- VARIABLES DE COLOR (Tema Claro Llamativo) ----- */
+:root {
+    --color-bg: #f5faff; /* Fondo azul muy claro */
+    --color-card-bg: #fffcf7; /* Blanco Crema (más cálido) */
+    --color-text: #2c3e50; /* Azul oscuro (para texto) */
+    --color-primary: #00aaff; /* Azul cielo (muy vibrante) */
+    --color-secondary: #0056b3; /* Azul marino (para títulos y hover) */
+    --color-shadow: rgba(0, 86, 179, 0.15);
+    --icon-color: #2c3e50;
+}
+
+/* ----- TEMA OSCURO (Llamativo) ----- */
+body.dark-mode {
+    --color-bg: #0a192f; /* Fondo azul marino profundo */
+    --color-card-bg: #112240; /* Azul oscuro para tarjeta */
+    --color-text: #e6f7ff; /* Texto azul claro */
+    --color-primary: #00aaff; /* Azul vibrante (resalta mucho) */
+    --color-secondary: #50caff; /* Azul más claro para títulos */
+    --color-shadow: rgba(0, 0, 0, 0.4);
+    --icon-color: #e6f7ff;
+}
+
+/* ----- ESTILOS GENERALES ----- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ----- BOTÓN DE TEMA ----- */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--color-card-bg);
+    color: var(--icon-color);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px var(--color-shadow);
+    display: grid;
+    place-items: center;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+}
+.dark-mode .theme-toggle .material-icons-sharp {
+    content: 'dark_mode'; /* Cambia el ícono */
+}
+
+/* ----- TARJETA PRINCIPAL ----- */
+.card {
+    background-color: var(--color-card-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--color-shadow);
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+    
+    /* Añade perspectiva para el efecto 3D */
+    perspective: 1000px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid var(--color-primary);
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px var(--color-shadow);
+    
+    /* Añade transición suave para el efecto tilt y para resetear */
+    transition: transform 0.3s ease-out;
+}
+
+/* ----- BOTONES (ESTILO UNIFICADO) ----- */
+.button-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto (móvil) */
+    gap: 15px;
+    margin-top: 25px;
+
+}
+
+/* Clase base para TODOS los botones (y links .btn) */
+.btn {
+    padding: 8px;
+    margin: 2px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-align: center;
+    text-decoration: none; /* Importante para los <a> */
+    line-height: 1.2;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--color-shadow);
+}
+
+/* Modificador Primario (Azul relleno) */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: var(--color-secondary);
+}
+
+/* Modificador Secundario (Bordeado - para Reset) */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-primary);
+}
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+/* Modificador para botones con ícono */
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+/* ----- VENTANAS MODALES ----- */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeInModal 0.3s;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: var(--color-card-bg);
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 10px 30px var(--color-shadow);
+    animation: slideInModal 0.4s ease-out;
+}
+
+@keyframes slideInModal {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--color-secondary);
+}
+
+.modal-content h3 {
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 400px; 
+    border: none;
+}
+
+
+/* ----- FORMULARIO (Genérico) ----- */
+/* (Estilos de formulario eliminados ya que no se usan) */
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.form-buttons .btn {
+    flex: 1; 
+}
+
+
+/* ----- CARRUSEL (Modal 3) ----- */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: var(--color-bg); 
+}
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-slide img {
+    width: 100%;
+    flex-shrink: 0;
+    height: 400px; /* Altura fija para todas las fotos */
+    object-fit: contain; /* Muestra la imagen completa sin recortes */
+    object-position: center;
+}
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: #333;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 10;
+}
+.carousel-btn.prev {
+    left: 10px;
+}
+.carousel-btn.next {
+    right: 10px;
+}
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+hr {
+    border: none;
+    border-top: 1px solid var(--color-primary);
+    opacity: 0.3;
+    margin: 25px 0;
+}
+
+
+/* ----- ESTILOS PARA TEXTO DE INVITACIÓN Y FIRMA ----- */
+
+.card .name {
+    font-size: 2rem;
+    color: var(--color-secondary);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.invitation-details {
+    margin: 25px 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.invitation-details p {
+    margin-bottom: 15px;
+}
+
+.invitation-details strong {
+    color: var(--color-primary); 
+}
+
+.invitation-details .esperamos {
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--color-secondary);
+}
+
+.invitation-details #linkBrindis {
+    text-decoration: none;
+    cursor: pointer;
+    /* Usamos el color primario que ya tiene el <strong> */
+    color: var(--color-primary); 
+    border-bottom: 2px dashed var(--color-primary);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.invitation-details #linkBrindis:hover {
+    opacity: 1;
+    border-bottom-style: solid;
+}
+
+.sign-off {
+    margin-top: 30px;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.sign-off strong {
+    font-style: normal;
+}
+
+.contact-divider {
+    border: none;
+    border-top: 1px solid var(--color-primary);
+    opacity: 0.3;
+    margin: 15px auto;
+    width: 50%;
+}
+
+.contact-phones {
+    font-style: normal;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ----- Limpieza de estilos viejos (si los tenías) ----- */
+.card h1, .card .intro-text {
+    display: none;
+}
+.contact-info {
+    display: none;
+}
+
+/* ----- ESTILOS PARA MODAL DE ALERTA ----- */
+.modal-alert-content {
+    max-width: 400px; 
+    text-align: center; 
+}
+
+#alertMessage {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 20px 0;
+    color: var(--color-text);
+}
+
+.modal-alert-content .form-buttons {
+    justify-content: center; 
+}
+
+/* (Estilos de subida de archivos eliminados) */
+
+
+/* ----- DISEÑO RESPONSIVO (PC) - ACTUALIZADO ----- */
+@media (min-width: 768px) {
+    .card {
+        padding: 40px;
+        max-width: 500px; 
+    }
+    .button-container {
+        grid-template-columns: 1fr 1fr; /* 2 columnas en PC */
+    }
+    
+    .modal-content {
+        margin: 5% auto; 
+    }
+}
+
+/* ▼▼ NUEVA CLASE AÑADIDA ▼▼ */
+/* Estilo para los botones apilados en el modal de confirmación */
+.form-buttons-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    width: 100%;
+    max-width: 300px; /* Evita que sean demasiado anchos en PC */
+    margin: 20px auto 0; /* Centra el contenedor */
+}
+
+.form-buttons-column .btn {
+    flex: 1; 
+}
+/* ▲▲ FIN DE LA NUEVA CLASE ▲▲ */

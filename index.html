@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bautismo de Emiliano</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕊️</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+</head>
+<body>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+        <span class="material-icons-sharp">light_mode</span>
+    </button>
+
+    <div class="card">
+        <h2 class="name">Mi Bautismo</h2>
+        <img src="/emiliano.jpeg" alt="Foto de Emiliano" class="profile-pic">
+        
+        <h2 class="name">Emiliano Enrique Ramírez Faiad</h2>
+        
+        <div class="invitation-details">
+            <p>Dios lo ha bendecido con la luz de la vida, y ahora lo bendecirá con el don de la fe.</p>
+            <p>
+                La ceremonia se llevará a cabo el día <strong>domingo 23 de noviembre del 2025</strong> a las <strong>12:00 hs</strong> 
+                en la <strong>Iglesia Parroquia Santa Catalina de Siena (Avenida General Paz 430)</strong>.
+            </p>
+            
+            <p>
+                Después de la ceremonia, compartiremos un brindis en 
+                <a href="#" id="linkBrindis" title="¿Quieres ver la ubicación?">
+                    <strong>Rio cuarto 643, Santa Catalina, Cordoba</strong>
+                </a> 
+                para celebrar este momento tan especial.
+            </p> 
+            
+            <p class="esperamos">¡Esperamos contar con tu presencia!</p>
+        </div>
+
+        <div class="button-container">
+            
+            <button class="btn btn-primary btn-icon" id="btnLugar" title="Muestra el mapa de la iglesia">
+                <span class="material-icons-sharp">church</span>
+                Ver Ubicación
+            </button>
+
+            <button class="btn btn-primary btn-icon" id="btnFotos" title="Abre la galería de fotos de Emiliano">
+                <span class="material-icons-sharp">photo_camera</span>
+                Recuerdos
+            </button>
+            
+            <button class="btn btn-primary btn-icon" id="btnConfirmar" title="Confirmar asistencia">
+                <span class="material-icons-sharp">chat</span>
+                Confirmar Asistencia
+            </button>
+            </div>
+
+        <div class="sign-off">
+            <p>Con cariño,</p>
+            <p><strong>Mamá:</strong> Claudia Yamil Faiad</p>
+            <p><strong>Padre:</strong> Germán Andres Ramirez Pedernera</p>
+            <hr class="contact-divider">
+            <p class="contact-phones">Papá: (011) 1569534244 | Mamá: (0351) 153603703</p>
+        </div>
+    </div>
+
+    <div id="modalLugar" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h3>Lugar de la Ceremonia</h3>
+            <p><strong>Iglesia:</strong> Iglesia Parroquia Santa Catalina de Siena</p>
+            <p><strong>Dirección:</strong> Avenida General Paz 430, Santa Catalina, Córdoba</p>
+            <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3338.288231766957!2d-64.43642542529547!3d-33.20653908506072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d1f92b62097923%3A0xd5f6928c98d06a63!2sParroquia%20Santa%20Catalina%20de%20Siena!5e0!3m2!1ses-419!2sar!4v1763162510257!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalBrindis" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h3>Lugar del Brindis</h3>
+            <p><strong>Dirección:</strong> Rio cuarto 643, Santa Catalina, Córdoba</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d417.2677647061971!2d-64.42998053000544!3d-33.21037023812133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1763161874873!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalFotos" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h3>Recuerdos de Emiliano</h3>
+            
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="/en bola.jpg" alt="Foto 1 de Emiliano">
+                    <img src="/imag 02.jpg" alt="Foto 2 de Emiliano">
+                    <img src="/imag 06.jpg" alt="Foto 3 de Emiliano">
+                    <img src="/img 03.jpg" alt="Foto 4 de Emiliano">
+                    <img src="/img 04.jpg" alt="Foto 5 de Emiliano">
+                    <img src="/img 05.jpg" alt="Foto 6 de Emiliano">
+                    <img src="/img 06.jpg" alt="Foto 7 de Emiliano">
+                    <img src="/imagenes (1).jpg" alt="Foto 8 de Emiliano">
+                    <img src="/imagenes (2).jpg" alt="Foto 9 de Emiliano">
+                    <img src="/imagenes (3).jpg" alt="Foto 10 de Emiliano">
+                    <img src="/imagenes (4).jpg" alt="Foto 11 de Emiliano">
+                    <img src="/imagenes (5).jpg" alt="Foto 12 de Emiliano">
+                    <img src="/imagenes (6).jpg" alt="Foto 13 de Emiliano">
+                    <img src="/imagenes (7).jpg" alt="Foto 14 de Emiliano">
+                </div>
+                <button class="carousel-btn prev" id="prevBtn">❮</button>
+                <button class="carousel-btn next" id="nextBtn">❯</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="modalAlert" class="modal">
+        <div class="modal-content modal-alert-content">
+            <span class="close-btn">×</span>
+            <p id="alertMessage">Este es un mensaje de alerta.</p>
+            <div class="form-buttons">
+                <button id="alertCloseBtn" class="btn btn-primary">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalConfirmar" class="modal">
+        <div class="modal-content modal-alert-content">
+            <span class="close-btn">×</span>
+            <h3>Confirmar Asistencia</h3>
+            
+            <p id="alertMessage" style="margin: 20px 0;">
+                ¡Gracias por confirmar! 
+                Por favor, envía un mensaje a cualquiera de los dos para avisarnos.
+            </p>
+            
+            <div class="form-buttons-column">
+                <a href="https://wa.me/5491169534244?text=Hola%20Germán%2C%20quiero%20confirmar%20mi%20asistencia%20al%20bautismo%20de%20Emiliano." target="_blank" class="btn btn-primary btn-icon" title="Abre WhatsApp para confirmar con Germán">
+                    <span class="material-icons-sharp">chat</span>
+                    Confirmar con Papá (Germán)
+                </a>
+                
+                <a href="https://wa.me/5493513603703?text=Hola%20Claudia%2C%20quiero%20confirmar%20mi%20asistencia%20al%20bautismo%20de%20Emiliano." target="_blank" class="btn btn-primary btn-icon" title="Abre WhatsApp para confirmar con Claudia">
+                    <span class="material-icons-sharp">chat</span>
+                    Confirmar con Mamá (Claudia)
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
